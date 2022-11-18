@@ -106,3 +106,15 @@ services:
       - 445:445
     network_mode: host
     restart: always
+    
+volumes:
+  unifi_config:
+  nodered_data:
+  mqtt_config:
+  mqtt_data:
+  mqtt_log:
+  influxdb:
+  heimdall_config:
+  chronograf_data:
+  grafana_data:
+  bitwarden_data:
