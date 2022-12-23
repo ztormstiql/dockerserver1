@@ -64,17 +64,17 @@ services:
       - TZ=Europe/Amsterdam
       - INFLUXDB_UDP_ENABLED=true
       # - INFLUXDB_ADMIN_ENABLED=true
-  mqtt:
-    container_name: MQTT
-    image: eclipse-mosquitto:latest
-    volumes:
-      - mqtt_config:/mosquitto/config
-      - mqtt_data:/mosquitto/data
-      - mqtt_log/mosquitto/log
-    ports:
-      - 1883:1883
-      - 9001:9001
-    restart: always
+  #mqtt:
+    #container_name: MQTT
+    #image: eclipse-mosquitto:latest
+    #volumes:
+#      - mqtt_config:/mosquitto/config
+#      - mqtt_data:/mosquitto/data
+#      - mqtt_log/mosquitto/log
+    #ports:
+ #     - 1883:1883
+   #   -  9001:9001
+    #restart: always
   nodered:
     container_name: NodeRed
     image: nodered/node-red:latest
