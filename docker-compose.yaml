@@ -26,19 +26,29 @@ services:
     restart: always
     environment:
       - TZ=Europe/Amsterdam
-  heimdall:
-    container_name: Heimdall
-    image: linuxserver/heimdall:latest
-    volumes:
-      - heimdall_config:/config
+  homepage:
+    image: ghcr.io/benphelps/homepage:latest
+    container_name: homepage
     ports:
-      - 1201:80
-      - 443:443
-    restart: always
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Amsterdam
+      - 3000:3000
+    volumes:
+      - homepage_config:/app/config # Make sure your local config directory exists
+      - homepage_images:/app/public/images
+      - homepage_icons:/app/public/icons
+      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
+  # heimdall:
+  #   container_name: Heimdall
+  #   image: linuxserver/heimdall:latest
+  #   volumes:
+  #     - heimdall_config:/config
+  #   ports:
+  #     - 1201:80
+  #     - 443:443
+  #   restart: always
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Amsterdam
   influxdb:
     container_name: InfluxDB
     image: influxdb:latest
@@ -108,6 +118,9 @@ services:
     restart: always
     
 volumes:
+  homepage_config:
+  homepage_icons:
+  homepage_images:
   unifi_config:
   nodered_data:
   mqtt_config:
