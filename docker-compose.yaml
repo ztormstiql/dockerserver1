@@ -36,19 +36,6 @@ services:
       - homepage_images:/app/public/images
       - homepage_icons:/app/public/icons
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
-  # heimdall:
-  #   container_name: Heimdall
-  #   image: linuxserver/heimdall:latest
-  #   volumes:
-  #     - heimdall_config:/config
-  #   ports:
-  #     - 1201:80
-  #     - 443:443
-  #   restart: always
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=Europe/Amsterdam
   influxdb:
     container_name: InfluxDB
     image: influxdb:latest
@@ -63,7 +50,7 @@ services:
       - PGID=1000
       - TZ=Europe/Amsterdam
       - INFLUXDB_UDP_ENABLED=true
-      # - INFLUXDB_ADMIN_ENABLED=true
+      - INFLUXDB_ADMIN_ENABLED=true
   #mqtt:
     #container_name: MQTT
     #image: eclipse-mosquitto:latest
@@ -87,19 +74,19 @@ services:
       - TZ=Europe/Amsterdam
   unifi_controller:
     container_name: Unifi-Controller
-    image: ghcr.io/linuxserver/unifi-controller:latest
+    image: lscr.io/linuxserver/unifi-controller:latest
     volumes:
       - unifi_config:/config
     ports:
+      - 8443:8443
       - 3478:3478/udp
       - 10001:10001/udp
       - 8080:8080
-      - 8443:8443
       - 1900:1900/udp #optional
       - 8843:8843 #optional
       - 8880:8880 #optional
       - 6789:6789 #optional
-      - 5514:5514 #optional
+      - 5514:5514/udp #optional
     restart: always
     environment:
       - PUID=1000

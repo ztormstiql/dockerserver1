@@ -1,0 +1,15 @@
+version: "2.4"
+services:
+  heimdall:
+    container_name: Heimdall
+    image: linuxserver/heimdall:latest
+    volumes:
+      - heimdall_config:/config
+    ports:
+      - 1201:80
+      - 443:443
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
