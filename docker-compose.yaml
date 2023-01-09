@@ -65,6 +65,8 @@ services:
   nodered:
     container_name: NodeRed
     image: nodered/node-red:latest
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
     volumes:
       - nodered_data:/data
     ports:
