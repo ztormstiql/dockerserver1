@@ -75,6 +75,8 @@ services:
     environment:
       - TZ=Europe/Amsterdam
     privileged: true
+    group_add:
+      - dialout
   unifi_controller:
     container_name: Unifi-Controller
     image: lscr.io/linuxserver/unifi-controller:latest
