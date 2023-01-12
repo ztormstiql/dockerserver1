@@ -65,8 +65,8 @@ services:
   nodered:
     container_name: NodeRed
     image: nodered/node-red:latest
-    devices:
-      - /dev/ttyACM0:/dev/ttyACM0
+    #devices:
+  #    - /dev/ttyACM0:/dev/ttyACM0
     volumes:
       - nodered_data:/data
     ports:
@@ -115,7 +115,7 @@ services:
     tty: true
     stop_signal: SIGINT
     environment:
-      - SESSION_SECRET=mysupersecretkey
+      - SESSION_SECRET=9291
       - ZWAVEJS_EXTERNAL_CONFIG=/usr/src/app/store/.config-db
       # Uncomment if you want log times and dates to match your timezone instead of UTC
       # Available at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
