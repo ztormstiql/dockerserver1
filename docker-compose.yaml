@@ -60,7 +60,7 @@ services:
       - homepage_images:/app/public/images
       - homepage_icons:/app/public/icons
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
-     environment:
+    environment:
       - TZ=Europe/Amsterdam
   influxdb:
     container_name: InfluxDB
@@ -161,6 +161,8 @@ services:
       - dialout
    
 volumes:
+  adguard_work:
+  adguard_config:
   homepage_config:
   homepage_icons:
   homepage_images:
