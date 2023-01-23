@@ -9,9 +9,9 @@ services:
     ports:
       - 53:53/tcp
       - 53:53/udp
-      - 67:67/udp
-      - 68:68/tcp
-      - 68:68/udp
+#       - 67:67/udp
+#       - 68:68/tcp
+#       - 68:68/udp
       - 80:80/tcp
 #       - 443:443
       - 3005:3000/tcp
@@ -22,59 +22,59 @@ services:
     restart: always
     environment:
       - TZ=Europe/Amsterdam
-#   bitwarden:
-#     container_name: Bitwarden
-#     image: bitwardenrs/server:latest
-#     volumes:
-#       - bitwarden_data:/data
-#     ports:
-#       - 1234:80
-#     restart: always
-#   chronograf:
-#     container_name: Chronograf
-#     image: chronograf:latest
-#     volumes:
-#       - chronograf_data:/var/lib/chronograf
-#     ports:
-#       - 8888:8888
-#     restart: always
-#   grafana:
-#     container_name: Grafana
-#     image: grafana/grafana:latest
-#     volumes:
-#       - grafana_data:/var/lib/grafana
-#     ports:
-#       - 3030:3000
-#     restart: always
-#     environment:
-#       - TZ=Europe/Amsterdam
-#   homepage:
-#     image: ghcr.io/benphelps/homepage:latest
-#     container_name: homepage
-#     ports:
-#       - 1201:3000
-#     volumes:
-#       - homepage_config:/app/config # Make sure your local config directory exists
-#       - homepage_images:/app/public/images
-#       - homepage_icons:/app/public/icons
-#       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
-#     environment:
-#       - TZ=Europe/Amsterdam
-#   influxdb:
-#     container_name: InfluxDB
-#     image: influxdb:latest
-#     volumes:
-#       - influxdb:/var/lib/influxdb
-#     ports:
-#       - 8086:8086
-#     network_mode: host
-#     restart: always
-#     environment:
-#       - PUID=1000
-#       - PGID=1000
-#       - TZ=Europe/Amsterdam
-#       - INFLUXDB_UDP_ENABLED=true
-#       - INFLUXDB_ADMIN_ENABLED=true
+  bitwarden:
+    container_name: Bitwarden
+    image: bitwardenrs/server:latest
+    volumes:
+      - bitwarden_data:/data
+    ports:
+      - 1234:80
+    restart: always
+  chronograf:
+    container_name: Chronograf
+    image: chronograf:latest
+    volumes:
+      - chronograf_data:/var/lib/chronograf
+    ports:
+      - 8888:8888
+    restart: always
+  grafana:
+    container_name: Grafana
+    image: grafana/grafana:latest
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - 3030:3000
+    restart: always
+    environment:
+      - TZ=Europe/Amsterdam
+  homepage:
+    image: ghcr.io/benphelps/homepage:latest
+    container_name: homepage
+    ports:
+      - 1201:3000
+    volumes:
+      - homepage_config:/app/config # Make sure your local config directory exists
+      - homepage_images:/app/public/images
+      - homepage_icons:/app/public/icons
+      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
+    environment:
+      - TZ=Europe/Amsterdam
+  influxdb:
+    container_name: InfluxDB
+    image: influxdb:latest
+    volumes:
+      - influxdb:/var/lib/influxdb
+    ports:
+      - 8086:8086
+    network_mode: host
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+      - INFLUXDB_UDP_ENABLED=true
+      - INFLUXDB_ADMIN_ENABLED=true
   #mqtt:
     #container_name: MQTT
     #image: eclipse-mosquitto:latest
@@ -86,21 +86,21 @@ services:
  #     - 1883:1883
    #   -  9001:9001
     #restart: always
-#   nodered:
-#     container_name: NodeRed
-#     image: nodered/node-red:latest
-#     #devices:
-#   #    - /dev/ttyACM0:/dev/ttyACM0
-#     volumes:
-#       - nodered_data:/data
-#     ports:
-#       - 1880:1880
-#     restart: always
-#     environment:
-#       - TZ=Europe/Amsterdam
-#     privileged: true
-#     group_add:
-#       - dialout
+  nodered:
+    container_name: NodeRed
+    image: nodered/node-red:latest
+    #devices:
+  #    - /dev/ttyACM0:/dev/ttyACM0
+    volumes:
+      - nodered_data:/data
+    ports:
+      - 1880:1880
+    restart: always
+    environment:
+      - TZ=Europe/Amsterdam
+    privileged: true
+    group_add:
+      - dialout
   unifi_controller:
     container_name: Unifi-Controller
     image: lscr.io/linuxserver/unifi-controller:latest
