@@ -121,17 +121,17 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Amsterdam
-#   volume_sharer:
-#     container_name: Volume-Sharer
-#     image: gdiepen/volume-sharer
-#     volumes:
-#       - /var/lib/docker/volumes:/docker_volumes
-#       - /var/run/docker.sock:/var/run/docker.sock
-#     ports:
-#       - 139:139
-#       - 445:445
-#     network_mode: host
-#     restart: always
+  volume_sharer:
+    container_name: Volume-Sharer
+    image: gdiepen/volume-sharer
+    volumes:
+      - /var/lib/docker/volumes:/docker_volumes
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 139:139
+      - 445:445
+    network_mode: host
+    restart: always
   zwave-js-ui:
     container_name: zwave-js-ui
     image: zwavejs/zwave-js-ui:latest
