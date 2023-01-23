@@ -21,9 +21,9 @@ services:
       - 8853:8853/udp
       - 5443:5443/tcp 
       - 5443:5443/udp
-   restart: always
-   environment:
-     - TZ=Europe/Amsterdam
+    restart: always
+    environment:
+      - TZ=Europe/Amsterdam
   bitwarden:
     container_name: Bitwarden
     image: bitwardenrs/server:latest
