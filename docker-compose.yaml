@@ -49,7 +49,7 @@ services:
     environment:
       - TZ=Europe/Amsterdam
   homepage:
-    image: ghcr.io/benphelps/homepage:latest
+    image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     ports:
       - 1201:3000
