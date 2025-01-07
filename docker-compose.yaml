@@ -45,7 +45,7 @@ services:
       - 3333:3333
     restart: always
     environment:
-      - DATABASE_URL="postgresql://ztorm:lekkerding@192.168.178.238:5433/ghostfolio?sslmode=prefer"
+      - DATABASE_URL=postgres://ztorm:lekkerding@192.168.178.238:5433/ghostfolio?sslmode=prefer
       - NODE_ENV=production
       - ACCESS_TOKEN_SALT="u1em9x1zdz9numb"
       - JWT_SECRET_KEY="1nqf0axvpufn41k"
