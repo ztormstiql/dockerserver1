@@ -38,28 +38,7 @@ services:
     ports:
       - 8888:8888
     restart: always
-  grafana:
-    container_name: Grafana
-    image: grafana/grafana:latest
-    volumes:
-      - grafana_data:/var/lib/grafana
-    ports:
-      - 3030:3000
-    restart: always
-    environment:
-      - TZ=Europe/Amsterdam
-  homepage:
-    image: ghcr.io/gethomepage/homepage:latest
-    container_name: homepage
-    ports:
-      - 1201:3000
-    volumes:
-      - homepage_config:/app/config # Make sure your local config directory exists
-      - homepage_images:/app/public/images
-      - homepage_icons:/app/public/icons
-      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
-    environment:
-      - TZ=Europe/Amsterdam
+
   influxdb:
     container_name: InfluxDB
     image: influxdb:latest
