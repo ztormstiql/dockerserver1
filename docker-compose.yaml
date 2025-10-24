@@ -22,23 +22,6 @@ services:
     restart: always
     environment:
       - TZ=Europe/Amsterdam
-  bitwarden:
-    container_name: Bitwarden
-    image: bitwardenrs/server:latest
-    volumes:
-      - bitwarden_data:/data
-    ports:
-      - 1234:80
-    restart: always
-  chronograf:
-    container_name: Chronograf
-    image: chronograf:latest
-    volumes:
-      - chronograf_data:/var/lib/chronograf
-    ports:
-      - 8888:8888
-    restart: always
-
   influxdb:
     container_name: InfluxDB
     image: influxdb:latest
@@ -80,26 +63,7 @@ services:
     privileged: true
     group_add:
       - dialout
-  # unifi_controller:
-  #   container_name: Unifi-Controller
-  #   image: lscr.io/linuxserver/unifi-controller:latest
-  #   volumes:
-  #     - unifi_config:/config
-  #   ports:
-  #     - 8443:8443
-  #     - 3478:3478/udp
-  #     - 10001:10001/udp
-  #     - 8080:8080
-  #     - 1900:1900/udp #optional
-  #     - 8843:8843 #optional
-  #     - 8880:8880 #optional
-  #     - 6789:6789 #optional
-  #     - 5514:5514/udp #optional
-  #   restart: always
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=Europe/Amsterdam
+
   volume_sharer:
     container_name: Volume-Sharer
     image: gdiepen/volume-sharer
@@ -140,17 +104,6 @@ services:
 volumes:
   adguard_work:
   adguard_config:
-  homepage_config:
-  homepage_icons:
-  homepage_images:
-  unifi_config:
   nodered_data:
-#   mqtt_config:
-#   mqtt_data:
-#   mqtt_log:
   influxdb:
-  heimdall_config:
-  chronograf_data:
-  grafana_data:
-  bitwarden_data:
   zwave_config:
