@@ -1,5 +1,22 @@
 version: "2.4"
 services:
+  bitwarden:
+    container_name: Bitwarden
+    image: bitwardenrs/server:latest
+    volumes:
+      - bitwarden_data:/data
+    ports:
+      - 1234:80
+    restart: always
+  chronograf:
+    container_name: Chronograf
+    image: chronograf:latest
+    volumes:
+      - chronograf_data:/var/lib/chronograf
+    ports:
+      - 8888:8888
+    restart: always
+
   heimdall:
     container_name: Heimdall
     image: linuxserver/heimdall:latest
