@@ -22,6 +22,15 @@ services:
     restart: always
     environment:
       - TZ=Europe/Amsterdam
+  cup:
+    image: ghcr.io/sergi0g/cup:latest
+    container_name: cup # Optional
+    command: serve
+    ports:
+      - 8008:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
   influxdb:
     container_name: InfluxDB
     image: influxdb:latest
