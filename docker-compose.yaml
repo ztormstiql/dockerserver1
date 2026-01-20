@@ -71,6 +71,17 @@ services:
   #     # Optioneel: geef een naam of beschrijving van de host door
   #     KOMODO_AGENT_NAME: dockerserver1
   #     PERIPHERY_ROOT_DIRECTORY: ${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}
+  nginx-proxy-manager:
+    image: 'docker.io/jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    container_name: nginx-proxy-manager
+    network_mode: host
+    environment: # Uncomment this if IPv6 is not enabled on your host
+      - DISABLE_IPV6=true # Uncomment this if IPv6 is not enabled on your host
+    volumes:
+      - ./npm/data:/data
+      - ./npm/letsencrypt:/etc/letsencrypt
+  
   nodered:
     container_name: NodeRed
     image: nodered/node-red:latest
