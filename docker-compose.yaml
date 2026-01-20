@@ -76,6 +76,10 @@ services:
     restart: unless-stopped
     container_name: nginx-proxy-manager
     # network_mode: host
+    ports:
+      - 80:80
+      - 443:443
+      - 81:3000
     environment: # Uncomment this if IPv6 is not enabled on your host
       - DISABLE_IPV6=true # Uncomment this if IPv6 is not enabled on your host
     volumes:
